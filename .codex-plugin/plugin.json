@@ -1,0 +1,35 @@
+{
+  "name": "minds",
+  "version": "0.1.0",
+  "description": "Query AI personas of real people — founders, customers, domain experts — from inside Codex. Backed by getminds.ai. Useful for spec review, persona-driven product decisions, UX research, and red-team panels.",
+  "author": {
+    "name": "Minds AI",
+    "url": "https://getminds.ai",
+    "email": "support@getminds.ai"
+  },
+  "homepage": "https://github.com/minds-ai-co/codex-plugin",
+  "repository": "https://github.com/minds-ai-co/codex-plugin",
+  "license": "MIT",
+  "keywords": ["personas", "research", "panel", "user-research", "mcp", "minds"],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "mcp": {
+    "servers": {
+      "minds": {
+        "transport": "streamable-http",
+        "url": "https://app.getminds.ai/mcp",
+        "headers": {
+          "Authorization": "Bearer ${MINDS_API_KEY}"
+        }
+      }
+    }
+  },
+  "config": {
+    "MINDS_API_KEY": {
+      "description": "Personal Minds API key. Create one at https://app.getminds.ai/?settings=api-keys&type=personal — must start with `minds_`.",
+      "required": true,
+      "secret": true,
+      "pattern": "^minds_[A-Za-z0-9]{20,}$"
+    }
+  }
+}

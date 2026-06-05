@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local plugin testing
+.codex/
+node_modules/
+
+# Submission build artifacts (regenerable)
+submission/build/
+submission/*.pdf
+
+# Secrets — never commit
+.env
+.env.local
+*.key
