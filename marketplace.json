@@ -9,9 +9,8 @@
     {
       "name": "minds",
       "source": {
-        "source": "git-subdir",
+        "source": "url",
         "url": "https://github.com/minds-ai-co/codex-plugin.git",
-        "path": "./",
         "ref": "main"
       },
       "policy": {

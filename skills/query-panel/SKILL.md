@@ -12,7 +12,7 @@ When the user wants a panel reaction, use this exact shape — don't reinvent th
 - "What would [persona group] think about [thing]?"
 - "Ask my [founders / customers / experts] panel: [question]"
 - "Get a persona panel on this spec"
-- Any product-decision moment where Sean-style design partners would add signal
+- Any product-decision moment where multi-perspective input would add signal
 
 If the user wants to talk to ONE persona, use `chat_with_mind` directly via MCP — don't use this skill (it's for the multi-persona case).
 
