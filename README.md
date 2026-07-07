@@ -45,7 +45,7 @@ Restart Codex; the plugin appears in the Personal marketplace.
 You need a Minds API key.
 
 1. Sign up at [getminds.ai](https://getminds.ai) (free tier available).
-2. Open **Settings → API Keys → Personal**: <https://app.getminds.ai/?settings=api-keys&type=personal>
+2. Open **Settings → API Keys → Personal**: <https://getminds.ai/?settings=api-keys&type=personal>
 3. Click **Create key**, copy the `minds_…` value (shown ONCE).
 4. Codex will prompt for `MINDS_API_KEY` on install — paste it there.
 
@@ -59,7 +59,7 @@ After install:
 codex plugin list
 ```
 
-You should see `minds` listed with **4 skills**, **2 commands**, and **1 MCP server** (`https://app.getminds.ai/mcp`).
+You should see `minds` listed with **4 skills**, **2 commands**, and **1 MCP server** (`https://getminds.ai/mcp`).
 
 Then in a Codex session:
 
@@ -71,12 +71,12 @@ You should see your panels, or an empty list with a link to create one.
 
 ## Architecture
 
-The plugin is a thin distribution wrapper around the Minds streamable-HTTP MCP server at `https://app.getminds.ai/mcp`. All 24 Minds MCP tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, etc.) become available as native Codex MCP tools after install. The bundled skills add anchored prompts so the LLM doesn't reinvent the polling / synthesis shape for common workflows.
+The plugin is a thin distribution wrapper around the Minds streamable-HTTP MCP server at `https://getminds.ai/mcp`. All 24 Minds MCP tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, etc.) become available as native Codex MCP tools after install. The bundled skills add anchored prompts so the LLM doesn't reinvent the polling / synthesis shape for common workflows.
 
 ```
 Codex (CLI / IDE / app)
    │
-   ├── mcp config → https://app.getminds.ai/mcp  (Bearer auth, streamable-http)
+   ├── mcp config → https://getminds.ai/mcp  (Bearer auth, streamable-http)
    │       └── 24 MCP tools (list_minds, create_mind, query_panel, ...)
    │
    └── skills/ + commands/  (curated prompts for the 4 most common workflows)
@@ -87,7 +87,7 @@ No code runs locally beyond the plugin manifest. All inference and data live in 
 ## Security & Privacy
 
 - **Auth.** Personal API keys (`minds_…`). Keys are scoped to your Minds account.
-- **Data.** Questions and answers traverse `app.getminds.ai`. Minds does not train on user content; see <https://getminds.ai/privacy>.
+- **Data.** Questions and answers traverse `getminds.ai`. Minds does not train on user content; see <https://getminds.ai/privacy>.
 - **Local footprint.** The plugin ships skills (markdown) + a manifest. No binaries, no scripts, no telemetry from the plugin itself.
 - **Revoke.** Delete the key in the webapp; the plugin loses access instantly.
 

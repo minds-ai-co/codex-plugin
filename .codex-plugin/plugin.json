@@ -17,7 +17,7 @@
     "servers": {
       "minds": {
         "transport": "streamable-http",
-        "url": "https://app.getminds.ai/mcp",
+        "url": "https://getminds.ai/mcp",
         "headers": {
           "Authorization": "Bearer ${MINDS_API_KEY}"
         }
@@ -26,7 +26,7 @@
   },
   "config": {
     "MINDS_API_KEY": {
-      "description": "Personal Minds API key. Create one at https://app.getminds.ai/?settings=api-keys&type=personal — must start with `minds_`.",
+      "description": "Personal Minds API key. Create one at https://getminds.ai/?settings=api-keys&type=personal — must start with `minds_`.",
       "required": true,
       "secret": true,
       "pattern": "^minds_[A-Za-z0-9]{20,}$"
