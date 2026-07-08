@@ -101,7 +101,7 @@ You can chain this as many times as you need. Each panel run takes 5–30s. When
 
 ## Production tips
 
-- **Rate limits.** Default is 60 req/min, 1000 req/day on `app.getminds.ai`. Bigger panels burn budget faster; cap panel size at 12 for fast iteration.
+- **Rate limits.** Default is 60 req/min, 1000 req/day on `getminds.ai`. Bigger panels burn budget faster; cap panel size at 12 for fast iteration.
 - **Key rotation.** Rotate every 90 days. Revoke instantly in the webapp.
 - **Don't put PII in persona context** unless you've reviewed the [Minds privacy policy](https://getminds.ai/privacy) and signed a DPA (available on request).
 - **Security details.** See the plugin's [security & privacy doc](https://github.com/minds-ai-co/codex-plugin/blob/main/submission/security-privacy.md) for auth, data handling, moderation, and sub-processor list.
@@ -110,7 +110,7 @@ You can chain this as many times as you need. Each panel run takes 5–30s. When
 
 - Plugin repo: <https://github.com/minds-ai-co/codex-plugin>
 - Minds docs: <https://docs.getminds.ai>
-- Minds MCP endpoint (24 tools): `https://app.getminds.ai/mcp`
+- Minds MCP endpoint (24 tools): `https://getminds.ai/mcp`
 - Codex plugin docs: <https://developers.openai.com/codex/plugins/build>
 - Codex skills docs: <https://developers.openai.com/codex/skills>
 

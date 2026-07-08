@@ -30,7 +30,7 @@ All four flows are one slash command or one skill invocation away after install.
 - **Built for research, not chat.** Minds is the only platform purpose-built for multi-persona inference at scale. Group-level panels, formation-based subgrouping, alignment scoring per persona.
 - **Battle-tested in production.** Active enterprise contracts (incl. VW 1000-mind factory simulation), several YC-portfolio customers, ~XXXX active accounts.
 - **Standards-first.** Streamable-HTTP MCP, Bearer auth, no custom protocols. Same endpoint powers our Claude Code skill and our own webapp.
-- **Privacy by default.** No training on user content. Personal keys. Hosted on app.getminds.ai with SOC2 Type 1 in progress.
+- **Privacy by default.** No training on user content. Personal keys. Hosted on getminds.ai with SOC2 Type 1 in progress.
 
 ## Traction snapshot (Sean to fill in)
 

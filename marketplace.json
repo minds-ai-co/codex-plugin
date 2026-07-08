@@ -3,7 +3,7 @@
   "interface": {
     "displayName": "Minds — AI Persona Panels",
     "description": "Official Minds plugin for Codex. Query AI personas of founders, customers, and domain experts without leaving the terminal.",
-    "iconUrl": "https://app.getminds.ai/favicon.ico"
+    "iconUrl": "https://getminds.ai/favicon.ico"
   },
   "plugins": [
     {

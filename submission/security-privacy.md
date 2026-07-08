@@ -10,7 +10,7 @@ Codex (user's machine)
   │  HTTPS + Bearer MINDS_API_KEY
   │  Streamable-HTTP MCP
   ▼
-app.getminds.ai/mcp  (Minds, hosted by Minds AI Co.)
+getminds.ai/mcp  (Minds, hosted by Minds AI Co.)
   │
   ▼
 Minds platform (Supabase Postgres + pgvector, Redis, AI model providers)
@@ -24,12 +24,12 @@ No code from this plugin executes locally beyond the manifest + skill markdown. 
 - **Issuance.** Generated in-webapp via authenticated session. Plaintext shown ONCE at creation.
 - **Storage on user's machine.** Codex stores `MINDS_API_KEY` in its built-in secret store (`policy.authentication: ON_INSTALL`, `secret: true`). The plugin never reads or persists the key — Codex injects it into MCP request headers.
 - **Scope.** Keys are scoped to one Minds account and inherit that account's existing entitlements.
-- **Revocation.** User can revoke at <https://app.getminds.ai/?settings=api-keys&type=personal>. Effect is immediate.
+- **Revocation.** User can revoke at <https://getminds.ai/?settings=api-keys&type=personal>. Effect is immediate.
 - **Rotation.** Keys do not auto-rotate. Recommended rotation cadence: 90 days.
 
 ## Data handling
 
-- **What leaves the user's machine.** Tool arguments (question text, persona names, keywords) over TLS 1.3 to `app.getminds.ai`.
+- **What leaves the user's machine.** Tool arguments (question text, persona names, keywords) over TLS 1.3 to `getminds.ai`.
 - **What comes back.** Synthesized persona answers, panel results, status payloads. All JSON, no executable content.
 - **Persistence.** Questions, answers, and created Minds are persisted on the user's Minds account (per the user's own retention settings).
 - **Training.** Minds does not train its models on user-submitted content. Our model providers (OpenAI, Anthropic, Google) operate under their respective API-tier data-use terms with training opt-out enabled.
@@ -77,4 +77,4 @@ No code from this plugin executes locally beyond the manifest + skill markdown. 
 - Does NOT read files outside its own plugin directory
 - Does NOT send any telemetry (no usage pings, no install pings, no error reports)
 - Does NOT auto-update (user-initiated `codex plugin marketplace upgrade` only)
-- Does NOT call any endpoint other than `app.getminds.ai/mcp`
+- Does NOT call any endpoint other than `getminds.ai/mcp`
