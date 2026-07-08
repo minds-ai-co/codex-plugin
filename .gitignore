@@ -16,3 +16,7 @@ submission/*.pdf
 .env
 .env.local
 *.key
+
+# jumpcode workspace internals (never commit)
+.jumpcode/
+scratchpad/
