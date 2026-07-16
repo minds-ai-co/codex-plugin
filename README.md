@@ -15,10 +15,7 @@ Backed by [Minds AI](https://getminds.ai). Use it for spec review, persona-drive
 | `sort-group` | "Group my personas by..." | `Split my QA panel by seniority` |
 | `clone-voice` | "Clone a voice onto..." | `Clone this audio sample onto my founder Mind` |
 
-Plus slash commands:
-
-- `/minds-panel <panel-name> <question>` — fire a panel question
-- `/minds-create <name> <type> <keywords>` — spin up a new Mind
+Invoke a skill in plain language, or call the Minds MCP tools directly (e.g. `@minds query_panel ...`).
 
 ## Install
 
@@ -47,9 +44,14 @@ You need a Minds API key.
 1. Sign up at [getminds.ai](https://getminds.ai) (free tier available).
 2. Open **Settings → API Keys → Personal**: <https://getminds.ai/?settings=api-keys&type=personal>
 3. Click **Create key**, copy the `minds_…` value (shown ONCE).
-4. Codex will prompt for `MINDS_API_KEY` on install — paste it there.
+4. Provide it as the `MINDS_API_KEY` environment variable. The plugin's MCP config
+   (`.mcp.json`) reads the bearer token from `MINDS_API_KEY` (`bearer_token_env_var`).
+   Because the marketplace entry uses `authentication: ON_INSTALL`, Codex prompts for
+   it at install where supported; otherwise export it in your shell before launching
+   Codex (`export MINDS_API_KEY=minds_…`).
 
-The key is stored locally by Codex's secret store; the plugin never reads it directly.
+The key lives in your environment / Codex secret store; the plugin never reads or
+persists it — Codex injects it into the MCP `Authorization` header.
 
 ## Verify
 
@@ -59,7 +61,12 @@ After install:
 codex plugin list
 ```
 
-You should see `minds` listed with **4 skills**, **2 commands**, and **1 MCP server** (`https://getminds.ai/mcp`).
+You should see `minds` listed with **4 skills** and **1 MCP server** (`https://getminds.ai/mcp`).
+
+> **Smoke-test the auth path, not just registration.** `tools/list` is public on
+> `getminds.ai/mcp`, so tools can appear even if the key isn't wired. Confirm a real
+> authenticated call succeeds (below) — that is the check that proves `MINDS_API_KEY`
+> is actually injected.
 
 Then in a Codex session:
 
@@ -71,15 +78,15 @@ You should see your panels, or an empty list with a link to create one.
 
 ## Architecture
 
-The plugin is a thin distribution wrapper around the Minds streamable-HTTP MCP server at `https://getminds.ai/mcp`. All 24 Minds MCP tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, etc.) become available as native Codex MCP tools after install. The bundled skills add anchored prompts so the LLM doesn't reinvent the polling / synthesis shape for common workflows.
+The plugin is a thin distribution wrapper around the Minds streamable-HTTP MCP server at `https://getminds.ai/mcp`. The Minds MCP tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, etc.) become available as native Codex MCP tools after install. The bundled skills add anchored prompts so the LLM doesn't reinvent the polling / synthesis shape for common workflows.
 
 ```
 Codex (CLI / IDE / app)
    │
-   ├── mcp config → https://getminds.ai/mcp  (Bearer auth, streamable-http)
-   │       └── 24 MCP tools (list_minds, create_mind, query_panel, ...)
+   ├── .mcp.json → https://getminds.ai/mcp  (Bearer auth, streamable-http)
+   │       └── Minds MCP tools (list_minds, create_mind, query_panel, ...)
    │
-   └── skills/ + commands/  (curated prompts for the 4 most common workflows)
+   └── skills/  (curated prompts for the 4 most common workflows)
 ```
 
 No code runs locally beyond the plugin manifest. All inference and data live in the Minds webapp.
