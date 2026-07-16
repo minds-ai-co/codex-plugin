@@ -18,7 +18,7 @@ Self-attestation against the documented submission requirements. Each item: ✅ 
 
 ## Marketplace (`marketplace.json`)
 
-- ✅ Top-level `name` matches Git repo slug
+- ✅ Top-level `name` (`minds-marketplace`) is a valid free identifier — Codex does **not** require the marketplace `name` to match the repo slug (`codex-plugin`), per the #10 spec review (do not rename)
 - ✅ `interface.displayName` is human-friendly
 - ⚠️ Plugin `interface` / icon fields — Codex `interface` shape is being corrected under **#12** (the previous `iconUrl` attestation was against the wrong schema); not re-attested here pending #12.
 - ✅ Each plugin entry has `policy.installation`, `policy.authentication`, `category`
@@ -71,9 +71,9 @@ The native Response Widget bundle is **production-ready** (bridge-adaptive + ven
 ## Blockers & gated items (explicit — these are OUT of scope for #9)
 
 **#12 publish-blocker (must clear before any submit-ready claim):**
-- Manifest does not register the MCP server → plugin is inert. Format fix + `codex plugin install` smoke test tracked in #12.
-- `description` ≤200 char trim; `interface`/icon schema; commands-vs-Codex question; secret/config placement — all restructuring under #12.
-- The slash-command pitch (`/minds-panel`, `/minds-create`) in `one-pager.md` / `pitch-email.md` / `demo-script.md` and the "24 tools" figure are **deferred pending #12** (Codex has no commands concept; server now exposes 36 tools with an in-flight curation). Not re-attested as accurate here.
+- Manifest does not register the MCP server → plugin is inert on the current `widgets` base. Format fix is done in **PR #14 (reviewed-clean, pending merge)**; empirical `codex plugin install` smoke test is Sean-gated.
+- `description` ≤200 trim, `interface`/icon schema, commands removal, secret/config placement — all restructured in PR #14.
+- The slash-command pitch (`/minds-panel`, `/minds-create`) has been **removed** from `one-pager.md` / `pitch-email.md` / `demo-script.md` / the cookbook docs now that #12 confirmed Codex has no commands concept. The exact MCP tool count is left as a **TODO placeholder** (pending the in-flight tool curation — not ours to finalize).
 
 **Render-gated (depend on #3 render path; Sean captures):**
 - 3 screenshots (install flow, panel query, results synthesis)

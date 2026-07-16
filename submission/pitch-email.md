@@ -4,7 +4,7 @@ Hi Codex team,
 
 I'm Alexander, co-founder of Minds (getminds.ai). We've built a Codex plugin that lets developers query AI personas of real people — founders, customers, domain experts — directly from a Codex session, and I'd love your team's eyes on it for the Plugin Directory.
 
-**The plugin (live now):** <https://github.com/minds-ai-co/codex-plugin>
+**The plugin (public, MIT — install verification in progress):** <https://github.com/minds-ai-co/codex-plugin>
 
 ```
 codex plugin marketplace add minds-ai-co/codex-plugin
@@ -12,11 +12,11 @@ codex plugin marketplace add minds-ai-co/codex-plugin
 
 **60-second demo:** <LOOM URL — TODO before send>
 
-**What it does.** Wraps our existing MCP server (24 tools) so Codex users can:
+**What it does.** Wraps our existing Minds MCP server so Codex users can:
 
-- `/minds-panel founders What do you think of this onboarding spec?` — run a real-time panel of synthetic personas across a question, get the spread of opinions inline
-- `/minds-create "Marc Andreessen" expert VC,founder,contrarian` — spin up a persona in 30s
-- Ask follow-ups conversationally — all 24 MCP tools (`list_minds`, `chat_with_mind`, `query_panel`, etc.) become native Codex tools after install
+- Ask a panel of synthetic personas a question and get the spread of opinions inline (skill: `query-panel`)
+- Spin up a new persona in ~30s (skill: `create-mind`)
+- Ask follow-ups conversationally — the Minds MCP tools (`list_minds`, `chat_with_mind`, `query_panel`, etc.) become native Codex tools after install
 
 **Why it belongs in the Plugin Directory.**
 

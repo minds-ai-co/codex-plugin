@@ -38,8 +38,9 @@ No code from this plugin executes locally beyond the manifest + skill markdown. 
 
 ## Widget delivery (Response Widget)
 
-- **Self-contained bundle.** The inline Response Widget (`ui://widget/response.html`) is served from `getminds.ai/mcp` with all vendor code inlined — no external `<script>`, module, or CDN loads execute inside the host's sandboxed iframe (verified live 2026-07-16). This keeps the host CSP surface minimal and avoids third-party origins running in the user's client.
-- **Data path unchanged.** The widget renders only the tool result already returned over the authenticated MCP channel; it introduces no additional endpoints. (One residual: icon assets may attempt runtime fetches from a public icon API; these are cosmetic and fail soft — tracked as a webapp hardening item.)
+- **Vendor code inlined.** The inline Response Widget (`ui://widget/response.html`) is served from `getminds.ai/mcp` with all JavaScript/vendor libraries inlined — no external `<script>` or ES-module bundles are loaded into the host's sandboxed iframe (verified live 2026-07-16), keeping the host CSP surface minimal.
+- **One third-party network call, disclosed.** The bundled icon library (Iconify) may make runtime requests to a public icon API (`api.iconify.design`) to fetch icon glyphs. This is the one third-party origin the widget can reach; it carries **no user or account data** (icon names only) and fails soft (a missing icon simply doesn't render). Bundling icons to remove this last external call is tracked as a webapp hardening item.
+- **Data path unchanged.** Apart from that icon fetch, the widget renders only the tool result already returned over the authenticated MCP channel; it introduces no additional data endpoints.
 
 ## Content moderation
 

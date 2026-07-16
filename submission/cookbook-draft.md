@@ -55,7 +55,7 @@ Each `create_mind` call returns instantly. Training happens in background but th
 ## Step 3 — Ask the panel a real question
 
 ```
-/minds-panel "v2 pricing panel" Should we charge per-seat or per-usage for the v2 API?
+Ask the "v2 pricing panel": Should we charge per-seat or per-usage for the v2 API?
 ```
 
 The skill submits the question, polls status, and synthesizes the results. Illustrative response shape (real responses are richer — this is a synthesized excerpt):
@@ -94,7 +94,7 @@ The synthesis surfaces the spread — not just an average. The dissent is the si
 In the same Codex session, refine the question:
 
 ```
-/minds-panel "v2 pricing panel" If we charged per-usage with a per-seat enterprise tier above 10 users, would that work?
+Ask the "v2 pricing panel" again: If we charged per-usage with a per-seat enterprise tier above 10 users, would that work?
 ```
 
 You can chain this as many times as you need. Each panel run takes 5–30s. When you find a shape that resolves the dissent, write it into your spec.
@@ -110,7 +110,7 @@ You can chain this as many times as you need. Each panel run takes 5–30s. When
 
 - Plugin repo: <https://github.com/minds-ai-co/codex-plugin>
 - Minds docs: <https://docs.getminds.ai>
-- Minds MCP endpoint (24 tools): `https://getminds.ai/mcp`
+- Minds MCP endpoint (tool count TBD — curation in progress): `https://getminds.ai/mcp`
 - Codex plugin docs: <https://developers.openai.com/codex/plugins/build>
 - Codex skills docs: <https://developers.openai.com/codex/skills>
 
