@@ -1,7 +1,7 @@
 {
   "name": "minds",
   "version": "0.1.0",
-  "description": "Query AI personas of real people — founders, customers, domain experts — from inside Codex. Backed by getminds.ai. Useful for spec review, persona-driven product decisions, UX research, and red-team panels.",
+  "description": "Query AI personas of real people — founders, customers, domain experts — from inside Codex. For spec review, persona-driven product decisions, UX research, and red-team panels. By getminds.ai.",
   "author": {
     "name": "Minds AI",
     "url": "https://getminds.ai",
@@ -12,24 +12,17 @@
   "license": "MIT",
   "keywords": ["personas", "research", "panel", "user-research", "mcp", "minds"],
   "skills": "./skills/",
-  "commands": "./commands/",
-  "mcp": {
-    "servers": {
-      "minds": {
-        "transport": "streamable-http",
-        "url": "https://getminds.ai/mcp",
-        "headers": {
-          "Authorization": "Bearer ${MINDS_API_KEY}"
-        }
-      }
-    }
-  },
-  "config": {
-    "MINDS_API_KEY": {
-      "description": "Personal Minds API key. Create one at https://getminds.ai/?settings=api-keys&type=personal — must start with `minds_`.",
-      "required": true,
-      "secret": true,
-      "pattern": "^minds_[A-Za-z0-9]{20,}$"
-    }
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Minds — AI Persona Panels",
+    "shortDescription": "AI persona panels for research, inside Codex.",
+    "longDescription": "Query AI personas of founders, customers, and domain experts on any decision — spec review, persona-driven product calls, UX research, and red-team panels — without leaving Codex. Wraps the Minds MCP server (getminds.ai). Requires a personal Minds API key.",
+    "developerName": "Minds AI",
+    "category": "Research",
+    "websiteURL": "https://getminds.ai",
+    "privacyPolicyURL": "https://getminds.ai/legal/dataprivacy",
+    "termsOfServiceURL": "https://getminds.ai/legal/terms",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
   }
 }
