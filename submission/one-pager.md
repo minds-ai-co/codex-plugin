@@ -15,13 +15,12 @@
 | Red-team UX | Manual checklist | Adversarial-persona panel that finds the abuse cases |
 | Customer interview prep | Write the questions, hope for the best | Dry-run your interview script against synthetic customers first |
 
-All four flows are one slash command or one skill invocation away after install.
+All four flows are one skill invocation away once installed.
 
 ## What's in the box
 
 - **4 anchored skills** — `query-panel`, `create-mind`, `sort-group`, `clone-voice`
-- **2 slash commands** — `/minds-panel`, `/minds-create`
-- **MCP server** wired to all 24 Minds tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, …)
+- **MCP server** wired to the Minds MCP tools (`list_minds`, `create_mind`, `query_panel`, `chat_with_mind`, …) — _exact tool count TBD (tool curation in progress)_
 - **Auth flow** — ON_INSTALL, personal API key, local secret store
 - **Public OSS, MIT-licensed**
 

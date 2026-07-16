@@ -12,7 +12,7 @@ This cookbook adds a new entry under `examples/codex_minds_plugin.md` that demon
 
 - Installing the plugin via `codex plugin marketplace add minds-ai-co/codex-plugin`
 - Creating Minds (AI personas) and grouping them into a panel
-- Running a panel question via the bundled `/minds-panel` slash command
+- Running a panel question via the bundled `query-panel` skill
 - Interpreting the synthesis output — surfacing dissent, not just consensus
 - Iterating on a spec based on panel feedback
 - Production tips: rate limits, key rotation, security/privacy posture
@@ -20,7 +20,7 @@ This cookbook adds a new entry under `examples/codex_minds_plugin.md` that demon
 ### Why this fits the cookbook
 
 - Net-new Codex use case: synthetic user research from inside the editor
-- Uses standards Codex already supports: `.codex-plugin/plugin.json`, streamable-HTTP MCP, slash commands, skills
+- Uses standards Codex already supports: `.codex-plugin/plugin.json`, streamable-HTTP MCP, skills
 - Concrete, runnable example with a real public endpoint (no special access required beyond a free Minds account)
 - Open-source plugin, MIT-licensed
 

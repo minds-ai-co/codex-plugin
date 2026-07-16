@@ -1,6 +1,6 @@
 # Minds Codex Plugin — Security & Privacy
 
-For the OpenAI Codex Plugin Directory review. Last updated 2026-06-05.
+For the OpenAI Codex Plugin Directory review. Last updated 2026-07-16.
 
 ## Architecture
 
@@ -35,6 +35,12 @@ No code from this plugin executes locally beyond the manifest + skill markdown. 
 - **Training.** Minds does not train its models on user-submitted content. Our model providers (OpenAI, Anthropic, Google) operate under their respective API-tier data-use terms with training opt-out enabled.
 - **PII.** Users can submit PII as part of persona context. Standard Minds data-handling policies apply: <https://getminds.ai/privacy>.
 - **Sub-processors.** Listed at <https://getminds.ai/subprocessors>.
+
+## Widget delivery (Response Widget)
+
+- **Vendor code inlined.** The inline Response Widget (`ui://widget/response.html`) is served from `getminds.ai/mcp` with all JavaScript/vendor libraries inlined — no external `<script>` or ES-module bundles are loaded into the host's sandboxed iframe (verified live 2026-07-16), keeping the host CSP surface minimal.
+- **One third-party network call, disclosed.** The bundled icon library (Iconify) may make runtime requests to a public icon API (`api.iconify.design`) to fetch icon glyphs. This is the one third-party origin the widget can reach; it carries **no user or account data** (icon names only) and fails soft (a missing icon simply doesn't render). Bundling icons to remove this last external call is tracked as a webapp hardening item.
+- **Data path unchanged.** Apart from that icon fetch, the widget renders only the tool result already returned over the authenticated MCP channel; it introduces no additional data endpoints.
 
 ## Content moderation
 

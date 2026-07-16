@@ -26,7 +26,7 @@ $ codex plugin install minds
 **On screen:** Codex session. Type:
 
 ```
-/minds-panel founders Should we charge per-seat or per-usage for our v2 API?
+Ask my founders panel: "Should we charge per-seat or per-usage for our v2 API?"
 ```
 
 **Result block scrolls in:** 6 persona names, mixed responses, two strong dissents. Synthesized summary at the top.
@@ -37,7 +37,7 @@ $ codex plugin install minds
 
 **On screen:**
 ```
-/minds-create "Marc Andreessen" expert VC,founder,contrarian
+Create a mind of Marc Andreessen — expert; keywords: VC, founder, contrarian
 ✓ Created Mind 'Marc Andreessen' — sparkId 8f3a...
 https://getminds.ai/?sparkId=8f3a...
 Training in background. Chat available now.
@@ -50,7 +50,7 @@ Then:
 
 (Response renders.)
 
-**VO:** "Spin up a new persona in 30 seconds. Chat immediately. All 24 Minds tools become Codex tools after install."
+**VO:** "Spin up a new persona in 30 seconds. Chat immediately. All the Minds tools become Codex tools after install."
 
 ## Close (50–60s)
 
