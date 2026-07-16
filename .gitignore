@@ -12,7 +12,7 @@ node_modules/
 submission/build/
 # NOTE: submission PDFs (one-pager.pdf, security-privacy.pdf) are committed
 # deliverables per issue #9 (attached to the pitch email), so they are NOT ignored.
-# Regenerate with: python3 submission/render-pdf helper — see PR #9 / submission notes.
+# Regenerate with: python3 submission/render-pdf.py
 
 # Secrets — never commit
 .env
