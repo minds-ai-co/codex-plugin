@@ -38,7 +38,7 @@ Self-attestation against the documented submission requirements. Each item: ✅ 
 
 - ✅ Security disclosure email published (`security@getminds.ai`)
 - ✅ `security-privacy.md` covers auth, data handling, moderation, rate limits
-- ✅ Widget is served vendor-inlined with no external CDN/script loads (verified live on `getminds.ai/mcp`, #11) — no third-party origin runs in the host sandbox (one residual: Iconify may attempt runtime icon fetches; cosmetic, tracked as a webapp report-item)
+- ✅ No external `<script>`/ES-module bundles load in the host sandbox (widget vendor code is inlined — verified live on `getminds.ai/mcp`, #11); the one third-party call is optional, fail-soft Iconify icon-glyph fetches (icon names only, no user data), tracked as a webapp hardening item
 - ⚠️ SOC2 Type 1 — in progress, target Q3 2026 (not blocking for plugin acceptance per Codex docs)
 - ✅ Plugin requests no filesystem access beyond its own directory
 - ✅ No telemetry / phone-home
