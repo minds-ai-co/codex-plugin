@@ -13,6 +13,18 @@ This folder contains everything we hand to OpenAI Codex BD when pitching for inc
 | `screenshots/` | 3 reference screenshots: install flow, panel query, results synthesis. Capture before sending. |
 | `compliance-checklist.md` | Self-attestation matching every published item in the Codex Apps SDK submission guidelines we could find. |
 
+## Widget render status — per host (verified 2026-07-16, issue #11)
+
+Honest framing for the reviewer: the native Response Widget bundle is **production-ready** (bridge-adaptive + vendor-inlined, verified live on `getminds.ai/mcp`). Every remaining render gate is **host/connector config or upstream — not our code**. Nothing renders end-to-end for a brand-new user without the config step noted below.
+
+| Host | Renders the Response Widget today? | Gate |
+|---|---|---|
+| **chatgpt.com (web)** | Highly likely — not re-confirmable in-session on 2026-07-16 because the Minds connector was toggled off; **no regression found** | Re-enable the Minds MCP connector, then a fresh panel call renders inline |
+| **ChatGPT / Codex desktop app** | **Gated → yes** | Update Codex Desktop to ≥ 26.616.51431 and enable the MCP-apps flags; renders the identical skybridge resource (upstream openai/codex #21019) |
+| **Claude Desktop** | **Not yet** | Upstream ext-apps #671 (open) + two server-side `_meta`/handshake gaps on the Minds side (reported to backend; single-source, to verify) |
+
+The plugin's **skills** (`query-panel`, `create-mind`, `sort-group`, `clone-voice`) work as text tools independent of widget rendering; the rich inline widget is the enhancement layer gated above. **This packet is not submit-ready** — it is blocked on manifest issue #12 (the MCP server does not yet register in Codex).
+
 ## Submission paths (ranked)
 
 1. **Direct BD email** (`pitch-email.md`) — primary path. Address: `partnerships@openai.com`, cc `developers@openai.com`. There is no public submission form for the curated Plugin Directory as of 2026-06-05.
@@ -27,6 +39,6 @@ This folder contains everything we hand to OpenAI Codex BD when pitching for inc
 - [ ] 3 screenshots captured into `screenshots/`
 - [ ] Demo recorded (loom or mp4) and URL added to `pitch-email.md`
 - [ ] `security-privacy.md` reviewed by legal
-- [ ] Plugin repo pushed public at `github.com/minds-ai-co/codex-plugin`
+- [x] Plugin repo pushed public at `github.com/minds-ai-co/codex-plugin` (done — repo is public)
 - [ ] Cookbook PR drafted (optional, parallel)
 - [ ] Email sent to `partnerships@openai.com`
