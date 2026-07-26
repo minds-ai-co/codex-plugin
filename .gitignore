@@ -17,6 +17,5 @@ submission/*.pdf
 .env.local
 *.key
 
-# jumpcode workspace internals (never commit)
-.jumpcode/
+# agent workspace internals (never commit)
 scratchpad/
